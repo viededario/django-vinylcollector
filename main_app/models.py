@@ -1,6 +1,7 @@
 
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.contrib.auth.models import User
 
 
 FORMATS = (
@@ -47,6 +48,8 @@ class Vinyl(models.Model):
     release_date = models.DateField('Release Date')
     played_today = models.BooleanField(default=False)
     tracks = models.ManyToManyField(Track)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
     def played_for_today(self):
         # Checks if the vinyl has been played today

@@ -3,7 +3,7 @@ from .views import Home, VinylList, VinylDetail, GenreListCreate, GenreDetail, T
 
 
 from django.urls import path
-from .views import Home, VinylList, VinylDetail, GenreListCreate, GenreDetail, TrackListCreate, TrackDetail, AddTrackToVinyl, RemoveTrackFromVinyl
+from .views import Home, VinylList, VinylDetail, GenreListCreate, GenreDetail, TrackListCreate, TrackDetail, AddTrackToVinyl, RemoveTrackFromVinyl, CreateUserView, LoginView, VerifyUserView
 
 urlpatterns = [
     path('', Home.as_view(), name='home'),
@@ -19,4 +19,7 @@ urlpatterns = [
     path('vinyls/<int:vinyl_id>/tracks/<int:id>/', TrackDetail.as_view(), name='track-detail'),  
     path('vinyls/<int:vinyl_id>/add_track/<int:track_id>/', AddTrackToVinyl.as_view(), name='add-track-to-vinyl'),
     path('vinyls/<int:vinyl_id>/remove_track/<int:track_id>/', RemoveTrackFromVinyl.as_view(), name='remove-track-from-vinyl'),
+    path('users/register/', CreateUserView.as_view(), name='register'),
+    path('users/login/', LoginView.as_view(), name='login'),
+    path('users/token/refresh/', VerifyUserView.as_view(), name='token_refresh'),
 ]
