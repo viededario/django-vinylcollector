@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='vinyl',
             name='release_date',
-            field=models.DateField(default=2000-12-12, verbose_name='Release Date'),
+            field=models.DateField(default='2000-12-12', verbose_name='Release Date'),
             preserve_default=False,
         ),
     ]
